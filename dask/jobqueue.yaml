@@ -1,0 +1,41 @@
+# jobqueue.yaml file
+jobqueue:
+  slurm:
+    name: dask-worker
+
+    # Dask worker options
+    cores: 24                 # Total number of cores per job
+    memory: 120GB                # Total amount of memory per job
+    processes: 1                # Number of Python processes per job
+
+#     interface: null             # Network interface to use like eth0 or ib0
+    death-timeout: 60           # Number of seconds to wait if a worker can not find a scheduler
+    local-directory: /scratch/$USER/$SLURM_JOB_ID       # Location of fast local storage like /scratch or $TMPDIR
+
+#     # SLURM resource manager options
+#     shebang: "#!/usr/bin/env bash"
+    queue: geop,compute
+#     project: null
+    walltime: '00:30:00'
+#     extra: []
+#     env-extra: []
+#     job-cpu: null
+#     job-mem: null
+#     job-extra: []
+#     log-directory: null
+
+#   local:
+#     name: dask-worker
+#     # Dask worker options
+#     cores: null                 # Total number of cores per job
+#     memory: null                # Total amount of memory per job
+#     processes: 1                # Number of Python processes per job
+
+#     interface: null             # Network interface to use like eth0 or ib0
+#     death-timeout: 60           # Number of seconds to wait if a worker can not find a scheduler
+#     local-directory: null       # Location of fast local storage like /scratch or $TMPDIR
+
+#     extra: []
+#     env-extra: []
+#     job-extra: []
+#     log-directory: null
